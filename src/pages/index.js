@@ -78,7 +78,7 @@ export default ({data}) => (
   <Layout>
     <Seo title="Home" />
     <div>
-      <h1>Willian's touths</h1>
+      <h1>Willian's thoughts</h1>
       <h4>{data.allMarkdownRemark.totalCount}</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div>
