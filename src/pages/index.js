@@ -116,22 +116,23 @@ export default ({data}) => (
 export const Head = () => <Seo title="Home" />
 
 export const query = graphql`
-query{
-  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
-    totalCount
-    edges{
-      node{
-        id,
-        frontmatter{
-          description
-          title
-          date
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+            description
+          }
+          fields {
+            slug
+          }
+          excerpt(truncate: true)
         }
-        fields{
-          slug
-        }
-        excerpt
       }
     }
   }
-}`
+`
