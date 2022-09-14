@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `The Willian's thouths`,
+    title: `The Willian's thoughts`,
     description: `Kick off your next opponents`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
