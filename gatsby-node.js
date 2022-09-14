@@ -1,7 +1,6 @@
 const { notEqual } = require('assert');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require('path');
-
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if(node.internal.type === `MarkdownRemark`){
@@ -16,12 +15,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 
 }
-exports.createPages = async ({ actions }) => {
+exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
   {allMarkdownRemark{
     edges{
-      nodes{
+      node{
         fields{
           slug
         }
@@ -29,7 +28,8 @@ exports.createPages = async ({ actions }) => {
     }
   }}`).then(result => {
     result.data.allMarkdownRemark.edges.forEach(({node}) => {
-      createPage({
+      console.log("creating file"+node.fields.slug);
+     return createPage({
         path: node.fields.slug,
         component: path.resolve("./src/templates/blog-post.js"),
         context: {
