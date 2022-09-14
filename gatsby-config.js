@@ -1,29 +1,32 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `The Willian's thouths`,
+    description: `Kick off your next opponents`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
-    `gatsby-plugin-image`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
+    // `gatsby-plugin-image`,
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `${__dirname}/src/images`,
+    //   },
+    // },
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdowns`,
+        name: `markdown-pages`,
         path: `${__dirname}/src/markdown-pages`,
       },
     },
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
+    {    resolve: `gatsby-transformer-remark`,
+  }
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
